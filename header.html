@@ -1,0 +1,67 @@
+
+<script>
+  if($("body").hasClass("product"));else{var didScroll,lastScrollTop=0,delta=5,navbarHeight=$("header").outerHeight();function hasScrolled(){var l=$(this).scrollTop();Math.abs(lastScrollTop-l)<=delta||(l>lastScrollTop&&l>navbarHeight?$("header").removeClass("nav-down").addClass("nav-up"):l+$(window).height()<$(document).height()&&$("header").removeClass("nav-up").addClass("nav-down"),lastScrollTop=l)}$(window).scroll(function(l){didScroll=!0}),setInterval(function(){didScroll&&(hasScrolled(),didScroll=!1)},250)}  
+</script>
+<script>
+$(document).ready(function(){$(window).width()<992?$(".nav-menu-item.menu-dropdown a.submenu-trigger").click(function(n){n.preventDefault()}):$(".nav-menu-item.menu-dropdown a.submenu-trigger").click(function(n){var e=$(this).attr("href");window.location.href=e})});
+</script>
+<header class="main-header" role="banner">
+<div class="top-content-area"><div class="top-content">
+<div class="top-free">Free U.S. Shipping<span> on orders over $59</span></div>
+<div class="top-rgt-area">
+<div class="top-sale-link"><a href="{{url}}/on-sale/">Sale</a></div>
+<div class="top-phone"><a href="tel:{{settings.phone_number}}"><span>{{settings.phone_number}}</span></a></div>
+<div class="top-sm-area">{{> components/common/connect}}</div>
+</div>
+</div></div>
+<div class="primary-navigation" data-navigation-container>
+     {{> components/navigation/navigation-toggle}}
+    
+    {{> components/navigation/navigation}}
+  
+    <div class="hd-scu-area">
+  {{> components/header/search-form}}
+  
+  <div class="header-tools">      
+      <!-- {{> components/header/currency-selector}} -->
+      {{> components/header/customer-links}}
+      {{> components/cart/cart-preview-link}}
+    </div>
+  </div>
+  </div>
+ <div class="header-logo-section">
+  <div class="branding {{theme_settings.logo_size}}">
+    {{> components/common/branding}}
+  </div>
+  <div class="hd-scu-area">
+  {{> components/header/search-form}}
+  {{#if page_type '!==' 'default'}}
+  <div class="innerpage-header">
+  <div class="primary-navigation" data-navigation-container>
+     {{> components/navigation/navigation-toggle}}
+    
+    {{> components/navigation/navigation}}
+  
+    <div class="hd-scu-area">
+   {{> components/header/search-form}}
+  
+  <div class="header-tools">      
+      <!-- {{> components/header/currency-selector}} -->
+      {{> components/header/customer-links}}
+      {{> components/cart/cart-preview-link}}
+    </div>
+  </div>
+  </div>
+  </div>
+  {{/if}}
+  
+  <div class="header-tools">
+      <!-- {{> components/header/currency-selector}} -->
+      {{> components/header/customer-links}}
+      {{> components/cart/cart-preview-link}}
+    </div>
+  </div>
+  
+  </div>
+
+</header>
